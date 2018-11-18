@@ -1,17 +1,28 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <select v-model="location">
+      <option value="paris">Paris</option>
+      <option value="london">London</option>
+      <option value="roma">Roma</option>
+      <option value="marseille">Marseille</option>
+    </select>
+    <Meteo v-bind:location="location"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Meteo from './components/Meteo.vue'
 
 export default {
   name: 'app',
+    data: function() {
+      return {
+          location: "paris"
+      }
+    },
   components: {
-    HelloWorld
+    Meteo
   }
 }
 </script>
